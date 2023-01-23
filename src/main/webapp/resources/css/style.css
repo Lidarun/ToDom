@@ -1,0 +1,12 @@
+body{
+    background-image: url("../img/logInOut.png") ;
+    background-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
