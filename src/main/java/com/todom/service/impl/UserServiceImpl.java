@@ -14,18 +14,16 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepo;
-    private final RoleRepository roleRepo;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserServiceImpl(UserRepository userRepo,
-                           RoleRepository roleRepo,
                            BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepo = userRepo;
-        this.roleRepo = roleRepo;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -63,6 +61,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         return true;
+    }
+
+    public void addRoleAdmin(User user) {
+        User userFromDB = userRepo.findByUsername(user.getUsername());
+        userFromDB.getRoles().add(new Role(2L, "ROLE_ADMIN"));
+        userRepo.save(userFromDB);
     }
 
     @Override

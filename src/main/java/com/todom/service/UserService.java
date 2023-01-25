@@ -8,9 +8,16 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
     UserDetails loadUserByUsername(String username);
+
     User findUserById(Long userId);
+
     List<User> allUsers();
+
     boolean saveUser(User user);
+
     boolean deleteUser(Long userId);
-    public List<User> userList(Long idMin);
+
+    List<User> userList(Long idMin);
+
+    void addRoleAdmin(User user);
 }

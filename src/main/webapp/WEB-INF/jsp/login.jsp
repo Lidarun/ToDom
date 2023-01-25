@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <title>Log in</title>
-  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styleLogin.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
   <% response.sendRedirect("/"); %>
 </sec:authorize>
 
-<div class="form-form">
+<div class="form-login">
   <form method="POST" action="/login">
     <h1>Вход</h1>
     <div class="input-form">
@@ -26,10 +26,9 @@
     <input name="password" type="password" placeholder="Password"/></div>
 
     <div class="input-form">
-      <button type="submit">Войти</button></div>
+      <input type="submit" value="Войти"></div>
 
-    <div class="input-form">
-    <h4><a href="/registration">Зарегистрироваться</a></h4></div>
+    <h5><a href="/registration">Зарегистрироваться?</a></h5>
   </form>
 </div>
 

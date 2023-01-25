@@ -77,6 +77,12 @@ public class TodoController {
         return "redirect:/todo";
     }
 
+    @GetMapping("/cancelComplete")
+    public String cancelCompleteTodo(@RequestParam long id) {
+        service.todoNotCompleted(id);
+        return "redirect:/todo/trash";
+    }
+
     @GetMapping
     public String getListNotCompletedTodos(ModelMap model){
         String username = getLoggedInUserName(model);

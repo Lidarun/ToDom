@@ -1,0 +1,84 @@
+body{
+    background-image: url("../img/LoginAndRegistration.png"), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    -webkit-background-size: cover;
+     background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+.form-login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.form-login h1{
+    margin: 22px 100px;
+    padding: 0;
+    text-align: center;
+    color: rgba(66, 84, 84, 0.78);
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+.input-form{
+    margin: 11px;
+    text-align: center;
+    caret-color: black;
+}
+
+.input-form input{
+    padding: 11px;
+    with: 100%;
+    color: rgba(239, 239, 239, 0.74);
+    font-size: 20px;
+    background: none;
+    outline: none;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.input-form input:hover {
+    padding: 12px;
+}
+
+.input-form input[type="submit"]{
+    margin: 25px 0 25px;
+    color: rgba(207, 224, 224, 0.88);
+    font-weight: bold;
+    text-transform: uppercase;
+    background: none;
+    transition: .5s;
+}
+.input-form input[type="submit"]:focus{
+    border: black 1px;
+    color: black;
+}
+.input-form input[type="submit"]:hover{
+    background: rgba(46, 80, 86, 0.25);
+    border: 1px black;
+}
+
+.form-login a{
+    display: block;
+    text-align: center;
+    color: rgba(78, 101, 101, 0.89);
+    text-decoration: none;
+    transition: .5s;
+}
+
+.form-login a:hover{
+    padding: 10px;
+    color: white;
+}
+
+.form-errors{
+    text-align: center;
+    color: white;
+    font-size: small;
+    font-family: "Yu Gothic UI";
+}
+

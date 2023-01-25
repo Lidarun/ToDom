@@ -1,41 +1,34 @@
 package com.todom.controller;
 
+import com.todom.service.UserService;
 import com.todom.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
-    private final UserServiceImpl userServiceImpl;
+    @Autowired
+    private UserService userService;
 
-    public AdminController(UserServiceImpl userServiceImpl) {
-        this.userServiceImpl = userServiceImpl;
-    }
-
-    @GetMapping("/admin")
-    public String userList(Model model) {
-        model.addAttribute("allUsers", userServiceImpl.allUsers());
-        return "admin";
-    }
-
-    @PostMapping("/admin")
-    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
-                              @RequestParam(required = true, defaultValue = "" ) String action,
-                              Model model) {
-        if (action.equals("delete")){
-            userServiceImpl.deleteUser(userId);
-        }
+    //DELETE
+    @GetMapping("/delete")
+    public String deleteTodo(@RequestParam long id) {
+        userService.deleteUser(id);
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/gt/{userId}")
+    @GetMapping
+    public String userList(Model model) {
+        model.addAttribute("allUsers", userService.allUsers());
+        return "admin";
+    }
+
+    @GetMapping("/gt/{userId}")
     public String  gtUser(@PathVariable("userId") Long userId, Model model) {
-        model.addAttribute("allUsers", userServiceImpl.userList(userId));
+        model.addAttribute("allUsers", userService.userList(userId));
         return "admin";
     }
 }

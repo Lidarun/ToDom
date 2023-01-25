@@ -15,6 +15,7 @@ public class Role implements GrantedAuthority {
     @Id
     private Long id;
     private String name;
+    private String password;
 
     @Transient
     @ManyToMany(mappedBy = "roles")

@@ -5,8 +5,12 @@ import com.todom.repository.TodoRepository;
 import com.todom.repository.UserRepository;
 import com.todom.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -20,6 +24,13 @@ public class TodoServiceImpl implements TodoService {
     @Autowired
     private TodoRepository todoRepo;
 
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
+
     @Override
     public Todo getById(long id) {
         return todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
@@ -29,11 +40,6 @@ public class TodoServiceImpl implements TodoService {
     public void addTodo(Todo todo) {
         todoRepo.save(todo);
     }
-
-//    @Override
-//    public void addNewTodo(String description, String ownerUsername, Date date, Boolean status) {
-//        todoRepo.save(new Todo(description, ownerUsername, date, status));
-//    }
 
     @Override
     public void deleteTodo(long id) {
@@ -49,6 +55,15 @@ public class TodoServiceImpl implements TodoService {
     public void todoCompleted(long id) {
         Todo todo = todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
         todo.setStatus(true);
+        todo.setDate(new Date());
+        todoRepo.save(todo);
+    }
+
+    @Override
+    public void todoNotCompleted(long id) {
+        Todo todo = todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+        todo.setStatus(false);
+        todo.setDate(new Date());
         todoRepo.save(todo);
     }
 

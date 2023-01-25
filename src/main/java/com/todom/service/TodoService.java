@@ -10,6 +10,6 @@ public interface TodoService {
     void deleteTodo(long id);
     void updateTodo(Todo todo);
     void todoCompleted(long id);
-//    void addNewTodo(String description, String ownerUsername, Date date, Boolean status);
+    void todoNotCompleted(long id);
     List<Todo> listCompletedTodos(String username);
     List<Todo> listNotCompletedTodos(String username);}
