@@ -22,11 +22,4 @@ public class Todo {
     Date date;
     Boolean status = Boolean.FALSE;
 
-//
-//    public Todo(String description, String ownerUsername, Date date, Boolean status) {
-//        this.description = description;
-//        this.ownerUsername = ownerUsername;
-//        this.date = date;
-//        this.status = status;
-//    }
 }

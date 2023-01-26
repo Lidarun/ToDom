@@ -12,7 +12,7 @@
 
 <body>
 <header>
-    <a href="/" class="logo"><i class=""></i><span>TodomTODO</span></a>
+    <a href="/" class="logo"><span>TodomTODO</span></a>
     <ul class="navbar">
         <a href="/todo/add">New ToDo</a>
         <a href="/todo/trash">Completed</a>
@@ -20,11 +20,12 @@
 
     <div class="userbox">
         <sec:authorize access="!isAuthenticated()">
-            <a class="user" href="/login"><i class="#"></i>Log in  </a>
+            <a href="/login"></i>Log in  </a>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-            <a class="user" href="/logout">Log out  </a>
+            <a href="/logout">Log out  </a>
         </sec:authorize>
+
         <div class="bx bx-userbox" id="menu-icon"></div>
     </div>
 </header>
@@ -34,9 +35,9 @@
 
             <thead>
                 <tr>
-                    <th width="49%">Description</th>
-                    <th width="16%">Date</th>
-                    <th width="35%">Action</th>
+                    <th width="44%">Description</th>
+                    <th width="5%">Date</th>
+                    <th width="11%">Action</th>
                 </tr>
             </thead>
 

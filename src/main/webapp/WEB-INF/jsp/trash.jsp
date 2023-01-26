@@ -37,22 +37,23 @@
         </tr>
     </thead>
 
-<tbody>
-<c:forEach var="todo" items="${todoListTrash}">
-    <tr>
-        <td>${todo.description}</td>
-        <td><fmt:formatDate value="${todo.date}"
+        <tbody>
+        <c:forEach var="todo" items="${todoListTrash}">
+            <tr>
+                <td>${todo.description}</td>
+                <td><fmt:formatDate value="${todo.date}"
                             pattern="dd/MM/yyyy" /></td>
-        <td><a type="button" class="btn btn-success"
-               href="/todo/delete?id=${todo.id}">Delete</a>
-            <a type="button" class="btn btn-warning"
-               href="/todo/cancelComplete?id=${todo.id}">Not Completed</a>
-        </td>
-    </tr>
-</c:forEach>
-</tbody>
-    </table>
+                <td><a type="button" class="btn btn-success"
+                    href="/todo/delete?id=${todo.id}">Delete</a>
+                <a type="button" class="btn btn-warning"
+                    href="/todo/cancelComplete?id=${todo.id}">Not Completed</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
 
+    </table>
 </div>
+
+<a class="trash" href="/todo/deleteAll">Delete all</a>
 </body>
 </html>

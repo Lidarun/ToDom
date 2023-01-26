@@ -39,6 +39,9 @@ public class TodoController {
             return "todo";
         }
 
+        Date date = todo.getDate();
+        System.out.println(date);
+
         todo.setOwnerUsername(getLoggedInUserName(model));
         service.addTodo(todo);
         return "redirect:/todo";
@@ -53,6 +56,7 @@ public class TodoController {
         }
 
         todo.setOwnerUsername(getLoggedInUserName(model));
+        System.out.println(todo.getDate());
         service.updateTodo(todo);
         return "redirect:/todo";
     }
@@ -103,6 +107,14 @@ public class TodoController {
         service.deleteTodo(id);
         return "redirect:/todo";
     }
+
+    @GetMapping("/deleteAll")
+    public String deleteAllCompletedTodo(ModelMap model) {
+        String username = getLoggedInUserName(model);
+        service.deleteAllTodoByStatus(username);
+        return "redirect:/todo/trash";
+    }
+
 
     //Get username
     private String getLoggedInUserName(ModelMap model) {

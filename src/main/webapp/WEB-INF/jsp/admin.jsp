@@ -18,18 +18,18 @@
 <div class="admin-panel">
   <table class="table">
     <thead>
-    <th width="4%">ID</th>
-    <th width="20">UserName</th>
-    <th width="46%">Password</th>
-    <th width="20%">Roles</th>
-    <th width="10%">Action</th>
+    <th width="5%">ID</th>
+    <th width="20%">UserName</th>
+    <th width="35%">Password</th>
+    <th width="11%">Roles</th>
+    <th width="11%">Action</th>
     </thead>
     <c:forEach items="${allUsers}" var="user">
       <tr>
-        <td width="4%">${user.id}</td>
-        <td width="20%">${user.username}</td>
-        <td width="46%">${user.password}</td>
-        <td width="30%">
+        <td>${user.id}</td>
+        <td>${user.username}</td>
+        <td>${user.password}</td>
+        <td>
           <c:forEach items="${user.roles}" var="role">${role.name}; </c:forEach>
         </td>
 

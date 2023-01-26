@@ -2,7 +2,6 @@ package com.todom.service.impl;
 
 import com.todom.entity.Todo;
 import com.todom.repository.TodoRepository;
-import com.todom.repository.UserRepository;
 import com.todom.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -17,10 +16,6 @@ import java.util.NoSuchElementException;
 
 @Service
 public class TodoServiceImpl implements TodoService {
-
-    @Autowired
-    private UserRepository userRepo;
-
     @Autowired
     private TodoRepository todoRepo;
 
@@ -72,11 +67,15 @@ public class TodoServiceImpl implements TodoService {
         return todoRepo.findAllByOwnerUsernameAndStatusIsFalse(username);
     }
 
-
     @Override
     public List<Todo> listCompletedTodos(String username) {
         return todoRepo.findAllByOwnerUsernameAndStatusIsTrue(username);
     }
 
+    @Override
+    public void deleteAllTodoByStatus(String username) {
+        List<Todo> listCompletedTodo = listCompletedTodos(username);
+        listCompletedTodo.stream().forEach(n -> todoRepo.deleteById(n.getId()));
+    }
 
 }

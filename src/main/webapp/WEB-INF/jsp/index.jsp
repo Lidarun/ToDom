@@ -7,10 +7,13 @@
 <head>
   <title>Главная</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <script src="https://kit.fontawesome.com/31bc700251.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <header>
-    <a href="" class="logo"><i class=""></i><span>TodomTODO</span></a>
+    <a class="logo"><span>TodomTODO</span></a>
+
   <ul class="navbar">
     <sec:authorize access="hasRole('USER')">
         <h4><a href="/todo">ToDo</a></h4>
@@ -24,17 +27,17 @@
           <h4><a class="userToAdmin" href="/user">Get admin</a></h4>
       </sec:authorize>
 
-      <li><a class="active" href="#">Hello</a></li>
-      <li><a class="active" href="#">World</a></li>
+      <a class="active" href="#">Hello</a>
+      <a class="active" href="#">World</a>
   </ul>
 
     <div class="userbox">
         <sec:authorize access="!isAuthenticated()">
-            <a class="user" href="/login"><i class="#"></i>Login  </a>
+            <a class="user" href="/login">Login  </a>
             <%--    <h4><a href="/registration">Зарегистрироваться</a></h4>--%>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-            <a class="user" href="/logout">Log out  </a>
+            <a class="user" href="/logout"></i>Log out  </a>
         </sec:authorize>
         <div class="bx bx-userbox" id="menu-icon"></div>
     </div>
