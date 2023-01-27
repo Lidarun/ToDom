@@ -1,8 +1,54 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size-adjust: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
 body{
     background-image: url("../img/LoginAndRegistration.png"), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
     -webkit-background-size: cover;
      background-attachment: fixed;
     font-family: sans-serif;
+}
+
+::placeholder{
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Consolas;
+}
+
+header{
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10%;
+    background: transparent;
+    transition: all .9s ease;
+}
+
+.logo a{
+    display: flex;
+    align-items: center;
+}
+
+.logo span{
+    color: black;
+    font-family: "Arial Black";
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.logo span:hover{
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 666;
 }
 
 .form-login{
@@ -30,13 +76,13 @@ body{
 }
 
 .input-form input{
-    padding: 11px;
+    padding: 10px;
     with: 100%;
     color: rgba(239, 239, 239, 0.74);
     font-size: 20px;
     background: none;
     outline: none;
-    border: 1px solid white;
+    border: 1px solid black;
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -54,12 +100,11 @@ body{
     transition: .5s;
 }
 .input-form input[type="submit"]:focus{
-    border: black 1px;
     color: black;
 }
 .input-form input[type="submit"]:hover{
     background: rgba(46, 80, 86, 0.25);
-    border: 1px black;
+    border-color: black;
 }
 
 .form-login a{
@@ -73,6 +118,10 @@ body{
 .form-login a:hover{
     padding: 10px;
     color: white;
+}
+
+.form-login h5{
+    margin: 11px;
 }
 
 .form-errors{

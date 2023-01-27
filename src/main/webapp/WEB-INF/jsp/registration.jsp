@@ -11,10 +11,12 @@
 
 <body>
 <header>
-  <a href="/">Главная</a>
+  <a href="/" class="logo"><span>TodomTODO</span></a>
 </header>
+
+
 <div class="form-login">
-  <h1>Регистрация</h1>
+  <h1>Sign up</h1>
 <%--@elvariable id="userForm" type="java"--%>
   <form:form method="POST" modelAttribute="userForm">
 
@@ -37,7 +39,7 @@
     ${passwordError}</div>
 
     <div class="input-form">
-      <input type="submit" value="Зарегистрироваться "></div>
+      <input type="submit" value="Sign Up"></div>
   </form:form>
 </div>
 

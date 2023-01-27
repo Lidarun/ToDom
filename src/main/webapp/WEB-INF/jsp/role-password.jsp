@@ -12,7 +12,7 @@
 
 <body>
 <header>
-    <a href="/">Главная</a>
+    <a href="/" class="logo"><span>TodomTODO</span></a>
 </header>
 
 <div class="form-login">
@@ -24,7 +24,7 @@
                     <input name="password" type="password" placeholder="Password"/></div>
 
 <div class="input-form">
-    <input type="submit" value="OK"></div>
+    <input type="submit" value="Confirm"></div>
 </form:form>
 </div>
 

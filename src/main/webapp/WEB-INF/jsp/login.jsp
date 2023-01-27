@@ -10,10 +10,9 @@
 </head>
 
 <body>
-
-<sec:authorize access="isAuthenticated()">
-  <% response.sendRedirect("/"); %>
-</sec:authorize>
+<header>
+  <a href="/" class="logo"><span>TodomTODO</span></a>
+</header>
 
 <div class="form-login">
   <form method="POST" action="/login">
