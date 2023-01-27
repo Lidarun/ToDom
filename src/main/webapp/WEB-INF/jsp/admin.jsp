@@ -6,7 +6,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Log in with your account</title>
+  <title>Admin</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
 </head>
 

@@ -6,8 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ToDo</title>
+    <title>TodomToDo</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/31bc700251.css" crossorigin="anonymous">
 </head>
 <body>
 <header>
@@ -21,7 +22,7 @@
         <sec:authorize access="isAuthenticated()">
             <a class="user" href="/logout">Log out  </a>
         </sec:authorize>
-        <div class="bx bx-userbox" id="menu-icon"></div>
+        <a class="bx bx-userbox" id="menu-icon"></a>
     </div>
 </header>
 
@@ -54,6 +55,6 @@
     </table>
 </div>
 
-<a class="trash" href="/todo/deleteAll">Delete all</a>
+<a class="trash" href="/todo/deleteAll">Delete All</a>
 </body>
 </html>

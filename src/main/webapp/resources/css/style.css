@@ -161,6 +161,7 @@ body{
     top: 22%;
     left: 50%;
     width: 70%;
+    color: white;
     padding-top: 22px;
     font-family: Consolas;
     transform: translate(-50%, -50%);
@@ -185,7 +186,7 @@ body{
     position: absolute;
     margin-top: 20px;
     left: 50%;
-    width: 30%;
+    width: 25.2%;
     transform: translate(-50%, -50%);
 }
 .form-desc {
@@ -195,7 +196,7 @@ body{
     border-color: var(--text-color);
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.3);
-    font-size: 16px;
+    font-size: 17px;
 }
 .form-date {
     text-align: center;
@@ -204,11 +205,16 @@ body{
     border-color: var(--text-color);
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    font-size: 16px;
+    font-size: 17px;
 }
 .form-desc:hover, .form-date:hover{
     color: var(--main-color);
 }
+
+.form-desc[type="text"], .form-date[type="text"]{
+    color: var(--main-color);
+}
+
 button{
     position: absolute;
     transform: translate(-50%, -50%);
@@ -225,8 +231,6 @@ button:hover {
     border-color: var(--main-color);
     color: var(--text-color);
 }
-
-
 
 .todo-panel{
     position: absolute;
@@ -269,8 +273,12 @@ table, th, td {
 /*Trash*/
 .trash{
     position: absolute;
-    bottom: 2.2%;
-    right: 1%;
-    width: 100px;
+    bottom: 3.3%;
+    right: 3.3%;
     color: var(--text-color);
+    font-size: large;
+}
+
+.trash:hover {
+    color: rgba(16, 128, 189, 0.92);
 }

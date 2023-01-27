@@ -5,3 +5,5 @@ userbox.onclick = () => {
     userbox.classList.toggle('bx-x');
     navbar.classList.toggle('open');
 }
+
+$( "#date" ).datepicker();

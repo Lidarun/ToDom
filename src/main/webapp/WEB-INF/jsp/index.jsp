@@ -5,7 +5,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Главная</title>
+    <title>TodomToDo</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <script src="https://kit.fontawesome.com/31bc700251.js" crossorigin="anonymous"></script>
 </head>

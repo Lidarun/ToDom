@@ -17,7 +17,7 @@
 
 <div class="form-login">
   <form method="POST" action="/login">
-    <h1>Вход</h1>
+    <h1>Login</h1>
     <div class="input-form">
       <input name="username" type="text" placeholder="Username"
              autofocus="true"/></div>
@@ -26,9 +26,9 @@
     <input name="password" type="password" placeholder="Password"/></div>
 
     <div class="input-form">
-      <input type="submit" value="Войти"></div>
+      <input type="submit" value="Sign in"></div>
 
-    <h5><a href="/registration">Зарегистрироваться?</a></h5>
+    <h5><a href="/registration">Sign up?</a></h5>
   </form>
 </div>
 

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Регистрация</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styleLogin.css">
 </head>
 

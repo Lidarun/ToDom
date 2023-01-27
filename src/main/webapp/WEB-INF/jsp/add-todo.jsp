@@ -7,8 +7,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ToDo</title>
+    <title>TodomToDo</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Inline Datepicker</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
 </head>
 
@@ -42,13 +50,17 @@
         <div class="form-addTodo-date">
             <form:label path="date"></form:label>
             <form:input path="date" type="text" class="form-date"
-                        required="required"/>
+                        required="required" id="date" placeholder="mm/dd/yyyy"/>
             <form:errors path="date" cssClass="text-warning" />
         </div>
+
 
         <button type="submit" class="btn btn-success">Save</button>
 
     </form:form>
 </div>
+
+<script src="${contextPath}/resources/js/main.js"></script>
+
 </body>
 </html>

@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Log in</title>
+    <title>Role Admin</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styleLogin.css">
 </head>
 
@@ -16,7 +16,7 @@
 </header>
 
 <div class="form-login">
-    <h1>Admin role password</h1>
+    <h1>Role password</h1>
     <%--@elvariable id="roleForm" type="java"--%>
     <form:form method="POST" modelAttribute="roleForm">
 
