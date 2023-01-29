@@ -124,10 +124,9 @@ header{
     margin: 11px;
 }
 
-.form-errors{
+.form-errors {
     text-align: center;
     color: white;
     font-size: small;
     font-family: "Yu Gothic UI";
 }
-

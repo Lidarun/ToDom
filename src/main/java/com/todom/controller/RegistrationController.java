@@ -27,11 +27,11 @@ public class RegistrationController {
             return "registration";
         }
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
-            model.addAttribute("passwordError", "Пароли не совпадают");
+            model.addAttribute("passwordError", "Passwords don't match");
             return "registration";
         }
         if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Имя занято");
+            model.addAttribute("usernameError", "Username's taken");
             return "registration";
         }
 

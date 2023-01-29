@@ -26,7 +26,7 @@
 
       <div class="form-errors"
       <form:errors path="username"></form:errors>
-        ${usernameError}</div>
+          <p>${usernameError}</p></div>
 
     <div class="input-form">
     <form:input type="password" path="password" placeholder="Password"></form:input></div>
@@ -36,7 +36,7 @@
                 placeholder="Confirm your password"></form:input></div>
     <div class="form-errors"
       <form:errors path="password"></form:errors>
-    ${passwordError}</div>
+          <p>${passwordError}</p></div>
 
     <div class="input-form">
       <input type="submit" value="Sign Up"></div>
