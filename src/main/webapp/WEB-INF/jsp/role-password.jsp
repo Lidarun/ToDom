@@ -23,6 +23,10 @@
                 <div class="input-form">
                     <input name="password" type="password" placeholder="Password"/></div>
 
+                <div class="form-errors"
+                     <form:errors path="password"></form:errors>
+                <p>${passwordRoleError}</p></div>
+
 <div class="input-form">
     <input type="submit" value="Confirm"></div>
 </form:form>

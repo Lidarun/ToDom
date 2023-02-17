@@ -32,16 +32,18 @@ public class UserController {
         if(password.getPassword().equals(roleService.getPasswordByRoleName(roleAdmin))) {
             User user = (User) userService.loadUserByUsername(getLoggedInUserName(model));
             userService.addRoleAdmin(user);
-            return "admin";
+            return "redirect:/logout";
+        }else {
+            model.addAttribute("passwordRoleError", "Passwords don't match");
+            return "role-password";
         }
-
-        return "redirect:/";
     }
 
     //GET
     @GetMapping()
     public String showRolePasswordPage(ModelMap model) {
         model.addAttribute("roleForm", new User());
+
         return "role-password";
     }
 
