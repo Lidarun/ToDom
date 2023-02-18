@@ -27,7 +27,7 @@ public class TodoController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
@@ -35,12 +35,8 @@ public class TodoController {
     //POST
     @PostMapping("/add")
     public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
-        if (result.hasErrors()){
-            return "todo";
-        }
+        if (result.hasErrors()) return "redirect:/todo/add";
 
-        Date date = todo.getDate();
-        System.out.println(date);
 
         todo.setOwnerUsername(getLoggedInUserName(model));
         service.addTodo(todo);
@@ -51,12 +47,9 @@ public class TodoController {
     @PostMapping("/update")
     public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
 
-        if (result.hasErrors()) {
-            return "todo";
-        }
+        if (result.hasErrors()) return "redirect:/todo/update/id=" + todo.getId();
 
         todo.setOwnerUsername(getLoggedInUserName(model));
-        System.out.println(todo.getDate());
         service.updateTodo(todo);
         return "redirect:/todo";
     }

@@ -2,7 +2,6 @@ package com.todom.service.impl;
 
 import com.todom.entity.Role;
 import com.todom.entity.User;
-import com.todom.repository.RoleRepository;
 import com.todom.repository.UserRepository;
 import com.todom.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -62,6 +60,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         return true;
+    }
+
+    @Override
+    public boolean findUserByUsername(String username) {
+        User user = Optional.ofNullable(userRepo.findByUsername(username))
+                .orElse(null);
+        if (user != null) return true;
+
+        return false;
     }
 
     public void addRoleAdmin(User user) {
