@@ -2,7 +2,6 @@ package com.todom.entity;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Todo {
+public class Todo implements Comparable<Todo>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
@@ -23,4 +22,8 @@ public class Todo {
     Date date;
     Boolean status = Boolean.FALSE;
 
+    @Override
+    public int compareTo(Todo o) {
+        return this.getDate().compareTo(o.getDate());
+    }
 }

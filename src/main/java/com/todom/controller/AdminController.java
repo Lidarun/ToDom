@@ -1,5 +1,6 @@
 package com.todom.controller;
 
+import com.todom.service.TodoService;
 import com.todom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,12 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AdminController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private TodoService todoService;
 
     //DELETE
     @GetMapping("/delete")
     public String deleteUser(@RequestParam long id, ModelMap model) {
-        userService.deleteUser(id);
+        String username = userService.findUserById(id).getUsername();
         String usernameAdmin = getLoggedInUserName(model);
+
+        userService.deleteUser(id);
+        todoService.deleteAllByOwnerUsername(username);
+
         if (userService.findUserByUsername(usernameAdmin)){
             return "redirect:/admin";
         }
@@ -36,7 +43,7 @@ public class AdminController {
     }
 
     @GetMapping("/get/{userId}")
-    public String  gtUser(@PathVariable("userId") Long userId, Model model) {
+    public String  getUser(@PathVariable("userId") Long userId, Model model) {
         model.addAttribute("allUsers", userService.userList(userId));
         return "admin";
     }

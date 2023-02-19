@@ -10,9 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -22,13 +20,13 @@ public class TodoServiceImpl implements TodoService {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
     @Override
     public Todo getById(long id) {
-        return todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+        return todoRepo.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
@@ -48,7 +46,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public void todoCompleted(long id) {
-        Todo todo = todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+        Todo todo = todoRepo.findById(id).orElseThrow(NoSuchElementException::new);
         todo.setStatus(true);
         todo.setDate(new Date());
         todoRepo.save(todo);
@@ -56,7 +54,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public void todoNotCompleted(long id) {
-        Todo todo = todoRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+        Todo todo = todoRepo.findById(id).orElseThrow(NoSuchElementException::new);
         todo.setStatus(false);
         todo.setDate(new Date());
         todoRepo.save(todo);
@@ -64,7 +62,9 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<Todo> listNotCompletedTodos(String username) {
-        return todoRepo.findAllByOwnerUsernameAndStatusIsFalse(username);
+        List<Todo> listTodos = todoRepo.findAllByOwnerUsernameAndStatusIsFalse(username);
+        Collections.sort(listTodos);
+        return listTodos;
     }
 
     @Override
@@ -75,7 +75,13 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public void deleteAllTodoByStatus(String username) {
         List<Todo> listCompletedTodo = listCompletedTodos(username);
-        listCompletedTodo.stream().forEach(n -> todoRepo.deleteById(n.getId()));
+        listCompletedTodo.forEach(n -> todoRepo.deleteById(n.getId()));
+    }
+
+    @Override
+    public void deleteAllByOwnerUsername(String username) {
+        List<Todo> listTodos = todoRepo.findAllByOwnerUsername(username);
+        listTodos.forEach(n -> todoRepo.deleteById(n.getId()));
     }
 
 }

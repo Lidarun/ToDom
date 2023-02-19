@@ -16,4 +16,5 @@ public interface TodoService {
     List<Todo> listCompletedTodos(String username);
     List<Todo> listNotCompletedTodos(String username);
     void deleteAllTodoByStatus(String username);
+    void deleteAllByOwnerUsername(String username);
 }

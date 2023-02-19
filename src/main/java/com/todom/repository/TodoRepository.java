@@ -10,4 +10,5 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<Todo, Long> {
     List<Todo> findAllByOwnerUsernameAndStatusIsFalse(String username);
     List<Todo> findAllByOwnerUsernameAndStatusIsTrue(String username);
+    List<Todo> findAllByOwnerUsername(String username);
 }
